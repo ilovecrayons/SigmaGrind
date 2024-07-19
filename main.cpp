@@ -1,39 +1,37 @@
+#include <cmath>
 #include <iostream>
 #include <vector>
+#include <algorithm>
+#include<climits>
+
+int calcDist(std::vector<int> v, int start, int end){
+    int dist = 0;
+    if(start < end){
+        return end-start;
+    } else {
+        return static_cast<int>(v.size() - start + end);
+    }
+}
+
 int main(){
-    int max1, max2, max3, cur1, cur2, cur3;
-    std::cin>>max1>>cur1;
-    std::cin>>max2>>cur2;
-    std::cin>>max3>>cur3;
-    for(int i=0; i<33; i++){
-        if(cur1+cur2<=max2){
-            cur2+=cur1;
-            cur1=0;
-        }else{
-            cur1-=max2-cur2;
-            cur2=max2;
-        }
-        if(cur2+cur3<=max3){
-            cur3+=cur2;
-            cur2=0;
-        }else{
-            cur2-=max3-cur3;
-            cur3=max3;
-        }
-        if(cur3+cur1<=max1){
-            cur1+=cur3;
-            cur3=0;
-        }else{
-            cur3-=max1-cur1;
-            cur1=max1;
-        }
+    std::vector<int> v;
+    int n;
+    std::cin >> n;
+    for(int i=0; i<n; i++){
+        int x;
+        std::cin >> x;
+        v.push_back(x);
     }
-    if(cur1+cur2<=max2){
-            cur2+=cur1;
-            cur1=0;
-    }else{
-        cur1-=max2-cur2;
-        cur2=max2;
+    int ans = INT_MAX;
+    for (int i=0; i<n; i++){
+        int curlen = 0;
+        for(int j=0; j<n; j++){
+            if(i == j) continue;
+            curlen += calcDist(v, i, j) * v.at(j);
+        }
+        ans = std::min(ans, curlen);
     }
-    std::cout<<cur1<<std::endl<<cur2<<std::endl<<cur3;
+
+    std::cout << ans << std::endl;
+
 }
