@@ -1,8 +1,8 @@
 [
 {
-  "directory": "C:/Users/huang/Desktop/Prog/comp/build",
-  "command": "C:\\msys64\\ucrt64\\bin\\c++.exe   -g -o CMakeFiles\\comp.dir\\main.cpp.obj -c C:\\Users\\huang\\Desktop\\Prog\\comp\\main.cpp",
-  "file": "C:/Users/huang/Desktop/Prog/comp/main.cpp",
+  "directory": "C:/Users/huang/Desktop/Prog/SigmaGrind/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\c++.exe   -g -o CMakeFiles\\comp.dir\\main.cpp.obj -c C:\\Users\\huang\\Desktop\\Prog\\SigmaGrind\\main.cpp",
+  "file": "C:/Users/huang/Desktop/Prog/SigmaGrind/main.cpp",
   "output": "CMakeFiles/comp.dir/main.cpp.obj"
 }
 ]
