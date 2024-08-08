@@ -1,37 +1,26 @@
-#include <cmath>
-#include <iostream>
-#include <vector>
-#include <algorithm>
-#include<climits>
+#include <bits/stdc++.h>
 
-int calcDist(std::vector<int> v, int start, int end){
-    int dist = 0;
-    if(start < end){
-        return end-start;
-    } else {
-        return static_cast<int>(v.size() - start + end);
-    }
-}
+int n;
+std::string a, b;
+std::vector<int> ans(26,0);
 
-int main(){
-    std::vector<int> v;
-    int n;
+int main() {
     std::cin >> n;
-    for(int i=0; i<n; i++){
-        int x;
-        std::cin >> x;
-        v.push_back(x);
-    }
-    int ans = INT_MAX;
-    for (int i=0; i<n; i++){
-        int curlen = 0;
-        for(int j=0; j<n; j++){
-            if(i == j) continue;
-            curlen += calcDist(v, i, j) * v.at(j);
+    for(int i=0; i< n; i++){
+        std::cin >> a >> b;
+        std::vector<int> set1(26,0), set2(26,0);
+        for(int j=0; j<a.size(); j++){
+            set1[a[j]-'a']++;
         }
-        ans = std::min(ans, curlen);
+        for(int j=0; j<b.size(); j++){
+            set2[b[j]-'a']++;
+        }
+        for(int j=0; j<26; j++){
+            ans[j] += std::max(set1[j], set2[j]);
+        }
+
     }
-
-    std::cout << ans << std::endl;
-
+    for(int i=0; i<26; i++){
+        std::cout << ans[i] << std::endl;
+    }
 }
